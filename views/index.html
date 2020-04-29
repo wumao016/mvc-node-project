@@ -1,0 +1,43 @@
+{% extends './layout.html' %}
+{% block title %} 📚首页 {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/styles/index.css">
+{% endblock  %}
+{% block content %}
+<div>
+    <h1>[[data]]</h1>
+    <hr>
+    <input id="js-btn" type="button" value="点我执行" />
+    <!-- <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+          </div> -->
+    <div>
+        {% endblock %}
+
+        {% block scripts %}
+        <script src="/scripts/yd.js"></script>
+        <script src="https://cdn.bootcss.com/systemjs/6.3.1/system.js" type="nomodule"></script>
+        <script type="nomodule">
+            System.import("/scripts/index-bundle.js").then((result) => {
+                console.log("ES5 System Module", result.default);
+            })
+        </script>
+        <script type="module">
+            // console.log(_)
+            // _("🏮").map(function(){
+            //     console.log(456);
+            // });
+            // _.map("🏮",function(){
+            //     console.log(123);
+            // })
+            const { throttle } = _;
+            const btn = document.getElementById("js-btn");
+            btn.addEventListener("click",throttle(()=>{
+                console.log(Math.random())
+            }));
+            import("/scripts/index.js").then((result)=>{
+                console.log("ES6 Module",result.default);
+            })
+        </script>
+        {% endblock  %}
