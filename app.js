@@ -19,7 +19,7 @@ log4js.configure({
 const logger = log4js.getLogger('cheese');
 logger.error('Cheese is too ripe!');
 logger.fatal('Cheese was breeding ground for listeria.');
-//spa
+//spa+mpa混用阶段 
 //const { historyApiFallback } = require('koa2-connect-history-api-fallback');
 app.use(serve(staticDir));
 //app.use(historyApiFallback({ index: "/", whiteList: ['/api'] }));
